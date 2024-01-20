@@ -13,7 +13,7 @@ const startPDF = () => {
       ],
     });
     docx.Packer.toBlob(doc).then((blob) => {
-      saveAs(blob, "CognigyDocumentation.docx");
+      saveAs(blob, "FlowDocu.docx");
     });
   };
   
