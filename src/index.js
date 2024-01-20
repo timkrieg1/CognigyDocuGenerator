@@ -17,5 +17,6 @@ const startPDF = () => {
     });
   };
   
-  document.addEventListener("click", startPDF);
+  let button = document.getElementById("#btn")
+  button.addEventListener("click", startPDF);
   
