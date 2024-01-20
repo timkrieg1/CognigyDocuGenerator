@@ -6,7 +6,7 @@ const startPDF = () => {
         new docx.Paragraph({
           children: [
             new docx.TextRun({
-              text: "Hi",
+              text: "Test Text",
             }),
           ],
         }),
