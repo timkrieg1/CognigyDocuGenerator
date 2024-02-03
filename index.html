@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cognigy SDD Generator</title>
+    <style>
+        /* Deloitte Corporate Style */
+        body {
+            font-family: 'Helvetica', sans-serif; /* Font style */
+            color: #86BC24; /* Font color */
+            margin: 0; /* Remove default margins */
+            padding: 0; /* Remove default padding */
+        }
+
+        header {
+            background-color: #000000; /* Black stripe */
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px; /* Adjust as needed */
+            margin: 0 auto; /* Center the content */
+            background-color: #ffffff; /* Content background color */
+            padding: 20px;
+        }
+
+        h1 {
+            color: #86BC24;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        select, input[type="text"] {
+            width: 100%; /* Adjust the width to fill the container */
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #86BC24;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e0e0e0;
+        }
+
+        .error {
+            color: #c62828;
+            font-weight: bold;
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto;
+            max-width: 200px; /* Adjust the logo size as needed */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="logo" src="https://solsticemedia.com.au/wp-content/uploads/2018/03/Deloitte-logo-white.png" alt="Deloitte Logo">
+    </header>
+
+    <div class="container">
+        <h1>Cognigy SDD Generator</h1>
+
+        <label for="option">Select option:</label>
+        <select id="option" onchange="toggleFields()">
+            <option value="flows">Flows</option>
+            <option value="nodes">Nodes</option>
+            <option value="flows-nodes">Flows & Nodes</option>
+        </select>
+
+        <div id="apiKeyContainer">
+            <label for="apiKey">API Key:</label>
+            <input type="text" id="apiKey">
+        </div>
+
+        <div id="projectIdContainer">
+            <label for="projectId">Project Id:</label>
+            <input type="text" id="projectId">
+        </div>
+
+        <div id="flowIdContainer">
+            <label for="flowId">Flow Id:</label>
+            <input type="text" id="flowId">
+        </div>
+
+        <button id="btn">Generate</button>
+
+    </div>
+
+    <script>
+        var apiKeyContainer = document.getElementById('apiKeyContainer');
+        var projectIdContainer = document.getElementById('projectIdContainer');
+        var flowIdContainer = document.getElementById('flowIdContainer');
+
+        function toggleFields() {
+            var option = document.getElementById('option').value;
+
+            if (option == "nodes") {
+                apiKeyContainer.style.display = "block";
+                projectIdContainer.style.display = "none";
+                flowIdContainer.style.display = "block";
+                
+            } else{
+                apiKeyContainer.style.display = "block";
+                projectIdContainer.style.display = "block";  
+                flowIdContainer.style.display = "none";         
+            }
+        }
+        window.onload = toggleFields;
+    </script>
+
+
+
+  <script src="https://unpkg.com/docx@5.0.2/build/index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+  <script src="src/main.js"></script>
+  <script src="src/loadAllCharts.js"></script>
+  <script src="src/generateFlows.js"></script>
+
+
+</body>
+
+</html>
